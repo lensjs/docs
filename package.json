@@ -3,5 +3,8 @@
     "dev": "vitepress dev",
     "build": "npx vitepress build",
     "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^2.0.0-alpha.11"
   }
 }
