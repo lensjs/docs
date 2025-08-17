@@ -24,7 +24,3 @@ Each guide provides a complete, copy-pasteable example to get you started.
 ## 2. What's Next?
 
 After setting up your adapter, you can explore more advanced features:
-
-- **Configure Watchers**: Dive deeper into the [Express Configuration](../adapters/express/configuration.md) to customize what Lens monitors.
-- **Explore Handlers**: Learn about different [Watcher Handlers](../watchers/handlers.md) for integrations like Prisma.
-- **Extend Core**: Discover how to [extend Lens Core](../extending/core.md) to create your own watchers and adapters.

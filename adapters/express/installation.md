@@ -65,5 +65,3 @@ app.listen(port, () => {
 ## 3. Next Steps
 
 - Explore more options in the [Configuration Guide](./configuration.md)  
-- Check out [Watcher Handlers](../watchers/overview.md) for advanced integrations  
-- Learn about [Best Practices](../../guides/best-practices.md)  
