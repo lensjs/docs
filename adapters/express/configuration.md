@@ -16,11 +16,14 @@ Below are all the available options you can pass to `lens()`.
 | ----------------- | ----------------------- | -------- | ------------------- | --------------------------------------------------------------------------- |
 | **`app`**         | `Express`               | Yes      | -                   | Your Express application instance.                                          |
 | **`queryWatcher`**| `QueryWatcherConfig`    | Yes      | -                   | Configuration for the database query watcher.                               |
+| **`requestWatcherEnabled`**        | `boolean`                | No       | `true`             |  Weither to enable request watcher or not.                    |
 | **`path`**        | `string`                | No       | `/lens`             | The URL path where the Lens dashboard will be available.                    |
 | **`appName`**     | `string`                | No       | `Lens`              | The display name for your application in the dashboard.                     |
 | **`store`**       | `Store`                 | No       | `BetterSqliteStore` | The storage engine used for persisting Lens data.                           |
 | **`isAuthenticated`** | `Promise<boolean>` | No       | `undefined`         | Determines if the current request is authenticated before accessing Lens.   |
 | **`getUser`**     | `Promise<UserEntry>`    | No       | `undefined`         | Returns the user associated with the current request.                       |
+| **`ignoredPaths`**     | `RegExp[]`    | No       | `[]`         | Array of regex patterns to ignore (Lens routes are ignored by default).
+| **`onlyPaths`**     | `RegExp[]`    | No       | `[]`         | Array of regex patterns to only watch (ignore all other routes).
 
 ---
 
@@ -93,6 +96,8 @@ await lens({
     }),
   },
 
+  requestWatcherEnabled: true, // Turn on request watcher
+
   // (Optional) The path where the Lens dashboard will be available
   path: "/lens", // Default: "/lens"
 
@@ -101,6 +106,12 @@ await lens({
 
   // (Optional) Store to persist Lens data
   store: new DefaultDatabaseStore(), // which maps to BetterSqliteStore by default, but can be any store
+ 
+  // (Optional) Array of regex patterns to ignore (Lens routes are ignored by default)
+  ignoredPaths: [],
+
+  // (Optional) Array of regex patterns to only watch (ignore all other routes)
+  onlyPaths: [],
 
   // (Optional) Authentication check before accessing Lens
   isAuthenticated: async (req) => {
@@ -112,7 +123,6 @@ await lens({
   },
 
   // (Optional) Attach user information to Lens events/logs
- // It should return an object of UserEntry
   getUser: async (req) => {
     // Example: attach user from session or request
     return {
