@@ -121,6 +121,6 @@ export default lensConfig
    node ace serve --watch
    ```
 2. Open any route in your app to generate requests/queries.  
-3. Visit **[http://localhost:3333/lens](http://localhost:3333/lens)** to explore the Lens dashboard.
+3. Visit `http://localhost:3333/lens` to explore the Lens dashboard.
 
 That’s it — Lens is now monitoring your AdonisJS app!
