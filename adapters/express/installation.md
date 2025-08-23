@@ -9,7 +9,7 @@ The **Express adapter** integrates LensJS into your Express app.
 Install the Express adapter:
 
 ```bash
-npm install @lens/express-adapter
+npm install @lens/express-adapter @lens/core
 ```
 
 👉 If you want to use pre-built watcher handlers (e.g., Prisma), also install:
