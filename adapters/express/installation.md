@@ -36,12 +36,14 @@ const prisma = new PrismaClient({ log: ["query"] });
 
 await lens({
   app,
-  queryWatcher: {
-    enabled: true,
-    handler: createPrismaHandler({
-      prisma,
-      provider: "sql",
-    }),
+  handlers: {
+    query: {
+      enabled: true,
+      handler: createPrismaHandler({
+        prisma,
+        provider: "mysql",
+      }),
+    },
   },
 });
 
